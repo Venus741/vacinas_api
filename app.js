@@ -27,13 +27,17 @@ conexao_ao_banco.connect(err => {
 
 app.post('/bairros', (req, res) => {
     
-    bairros.push(req.body);
-    res.send('dado enviado!');
 });
 
-app.get('/bairros', (req, res) => {
+app.get('/bairros/:nome', (req, res) => {
 
-    res.json(bairros);
+    const nome = req.params.nome;
+
+    if (nome) {
+        res.send(nome);
+    } else {
+        res.send('Não encontrado')
+    }
 })
 
 app.listen(port, () => {
