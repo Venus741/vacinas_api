@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/index.css">
+    <title>Pontos de Vacinação</title>
+</head>
+<body>
+    <header>
+        <h1>Confira os pontos de vacinação de Maceió</h1>
+    </header>
+    <main>
+        <div class="container-opcoes">
+            <select name="select" id="lista">
+                <option value="farol" selected>Farol</option>
+                <option value="cidade-universitaria">Cidade Universitária</option>
+                <option value="petropolis">Petropolis</option>
+                <option value="salvador-lyra">Salvador Lyra</option>
+                <option value="clima-bom">Clima Bom</option>
+                <option value="serraria">Serraria</option>
+                <option value="jaragua">Jaraguá</option>
+                <option value="mangabeiras">Mangabeiras</option>
+                <option value="cruz-das-almas">Cruz das Almas</option>
+                <option value="trapiche">Trapiche</option>
+                <option value="pinheiro">Pinheiro</option>
+                <option value="ouro-preto">Ouro Preto</option>
+                <option value="benedito-bentes">Benedito Bentes</option>
+                <option value="tabuleiro">Tabuleiro</option>
+                <option value="pajucara">Pajuçara</option>
+                <option value="ponta-verde">Ponta Verde</option>
+              </select>
+              
+              <button onclick="conferir_pontos()" id="botao-conferir">Conferir</button>
+        </div>
+
+        <div class="container-tabela">
+            <div class="tabela">
+                <ul id="nome">nome: nome do bairro</ul>
+                <ul id="localidade">localidade: ambiente de funcionamento</ul>
+                <ul id="funcionamento">funcionamento: dias de funcionamento</ul>
+                <ul id="inicio">inicio: hora de inicio</ul>
+                <ul id="termino">termino: hora de término</ul>
+                <ul id="vacinas">vacinas: vacinas disponíveis</ul>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="index.js"></script>
+</html>
