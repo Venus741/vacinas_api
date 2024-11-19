@@ -2,7 +2,9 @@ const express = require('express');
 const app = express();
 const mysql = require('mysql2');
 const port = 3000;
+const cors = require('cors');
 
+app.use(cors());
 app.use(express.json());
 
  // Criação de conexão com o banco de dados PhpMyAdmin
@@ -31,15 +33,26 @@ app.post('/bairros', (req, res) => {
 
 app.get('/bairros/:nome', (req, res) => {
 
-    const nome = req.params.nome;
+    const nomeBairro = req.params.nome;
 
-    if (nome) {
-        res.send(nome);
-    } else {
-        res.send('Não encontrado')
-    }
-})
+    const query = "SELECT * FROM bairros WHERE nome = ?"
+
+    conexao_ao_banco.query(query, [nomeBairro], (err, resultado) => {
+
+        if (err) {
+            console.error('Erro ao consultar o banco de dados: ', err);
+            res.status(500).send('Problemas com servidor.');
+
+        } else if(resultado.length === 0) {
+            res.status(404).send('Bairro não encontrado.');
+            
+        } else {
+            res.json(resultado[0]);
+
+        }
+    });
+});
 
 app.listen(port, () => {
     console.log('SERVIDOR NO AR')
-})
+});
