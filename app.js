@@ -7,6 +7,8 @@ const cors = require('cors');
 app.use(cors());
 app.use(express.json());
 
+const db_teste = [];
+
  // Criação de conexão com o banco de dados PhpMyAdmin
 const conexao_ao_banco = mysql.createConnection({
     host: 'localhost',
